@@ -1,0 +1,46 @@
+DIACONU Tudor-Gabriel
+grupa 312CA
+
+	Am alocat dinamic si vectorul in care sunt memorate dimensiunile liniilor
+	si matricea pe care o citim de la tastatura. Am ales sa construiesc o matrice
+	de int-uri citita in baza 16.
+
+Task 1
+
+	Pentru a putea rezolva acest task, trebuia sa despart int-urile in octeti.
+	Acest lucru a fost posibil prin intermediul unui cast al fiecariei linii de
+	pe matrice la un pointer de char, intrucat sizeof(int) == 4 si
+	sizeof(char) == 1. Am calculat initial suma de pe prima si ultima linie a
+	matricii(in acelasi timp numarand elementele de pe ele). Apoi, am parcurs
+	matricea de la linia 1 la linia n-1, numarand cate 2 elemente marginale
+	pentru fiecare linie si adunandu-le la suma.
+
+Task 2
+
+	Pentru al doilea task, am utilizat mai multe functii. Pentru operatia modify,
+	fiecare dimensiune avea o cale usoara, in care indexul < dimensiunea liniei,
+	modificarea fiind facuta printr-un cast la char pentru dimensiunea c,
+	respectiv un cast la short int pentru dimensiunea s, la int nefiind necesar 
+	cast-ul. In cazul in care indexul > dimensiunea liniei, am realocat linia,
+	si am pus zerouri in octetii, short-urile si int-urile de la finalul liniei
+	pana la index si dupa index, acolo unde a fost cazul, numarul din index fiind
+	modificat. Pentru operatia delete, am folosit cast la char sau short, in 
+	functie de dimensiunea ceruta, iar pentru operatia swap, am utilizat o
+	functie de swap intre pointeri. Nu am implementat swap-ul pentru dimensiunea
+	char, deoarece un char are dimensiunea de un octet si nu are ce schimba 
+	functia in el.
+
+Task 3
+
+  Pentru cel de-al treilea task, am folosit algoritmul de fill, pentru care
+  m-am inspirat putin de pe site-ul https://tutoriale-pe.net/algoritmul-de-fill
+  -de-umplere-in-c/, acesta fiind format din 2 functii: functia de verificare,
+  care verifica daca se iese din matrice si daca elementele vecine sunt 0.
+  Functia algoritmfill porneste dintr-o anumita pozitie in matrice, iar daca
+  acea valoare este 0, o face 1, pentru a fi ignorata in momentul in care ne
+  mutam pe o pozitie vecina. Apoi am verificat daca elementele vecine
+  ((i+1, j); (i, j+1); (i, j-1), (i-1, j)) verifica conditiile acestui 
+  algoritm si apelam recursiv functia, marind astfel supermasivitatea gaurii
+  negre. In cele din urma, am calculat supermasivitatea maxima si am tinut 
+  minte in 2 variabile coordonatele punctului din care am plecat in respectiva
+  suprafata. 
